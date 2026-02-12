@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/reactportfolio/static/css/main.ca23cc8b.css",
+    "main.js": "/reactportfolio/static/js/main.8413cce9.js",
+    "static/media/Background.jpg": "/reactportfolio/static/media/Background.9cffc6e69f457555039c.jpg",
+    "static/media/video3.png": "/reactportfolio/static/media/video3.f0843a8a4fd39b8b3cbf.png",
+    "static/media/video2.png": "/reactportfolio/static/media/video2.e8dfaa530b327404c9a8.png",
+    "static/media/portfolio2.png": "/reactportfolio/static/media/portfolio2.cc148b85a6f00a872119.png",
+    "static/media/portfolio1.png": "/reactportfolio/static/media/portfolio1.007ef823da486012e31c.png",
+    "static/media/gym.png": "/reactportfolio/static/media/gym.793ee66e1ada8a1daad8.png",
+    "static/media/senior.png": "/reactportfolio/static/media/senior.c67967f2a7bd70aea1bf.png",
+    "static/media/video1.jpg": "/reactportfolio/static/media/video1.fc7771b0686690b08592.jpg",
+    "static/media/chip.jpg": "/reactportfolio/static/media/chip.3fa5b0ed809008264cd6.jpg",
+    "static/media/Projects-Section-template.png": "/reactportfolio/static/media/Projects-Section-template.cf3c28d076e6e56bad20.png",
+    "static/media/ShoaibJadallah's-CV.pdf": "/reactportfolio/static/media/ShoaibJadallah's-CV.97619f99d8519933d0e1.pdf",
+    "static/media/sho3la.png": "/reactportfolio/static/media/sho3la.94fb4bca48717d2f8837.png",
+    "static/media/shertee.png": "/reactportfolio/static/media/shertee.e82e12441b341953c569.png",
+    "static/media/nft.png": "/reactportfolio/static/media/nft.ed70a9478287167ae732.png",
+    "static/media/smart.png": "/reactportfolio/static/media/smart.652e228e08e25ade5f76.png",
+    "static/media/lightup.png": "/reactportfolio/static/media/lightup.ee697db1b4995d1b5c32.png",
+    "static/media/clock-design.png": "/reactportfolio/static/media/clock-design.4238d4c864bc41e48fc5.png",
+    "static/media/pureJS.png": "/reactportfolio/static/media/pureJS.77d22ba224005450d4fc.png",
+    "static/media/signup.png": "/reactportfolio/static/media/signup.5ebef22335a88e9ec50b.png",
+    "static/media/practice.png": "/reactportfolio/static/media/practice.e8a181d38077724c0467.png",
+    "static/media/animated-emog.png": "/reactportfolio/static/media/animated-emog.b51dbd82017b3db774e2.png",
+    "index.html": "/reactportfolio/index.html",
+    "main.ca23cc8b.css.map": "/reactportfolio/static/css/main.ca23cc8b.css.map",
+    "main.8413cce9.js.map": "/reactportfolio/static/js/main.8413cce9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca23cc8b.css",
+    "static/js/main.8413cce9.js"
+  ]
+}
