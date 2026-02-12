@@ -1,34 +1,38 @@
-import React from 'react'
-import '../Footer/Footer.css'
-import facebook from '../assets/Social/facebook.png'
-import linkedin from '../assets/Social/linkedin.png'
-import instagram from '../assets/Social/instagram.png'
-import github from '../assets/Social/github.png'
-
+import React from 'react';
+import './Footer.css';
 
 function Footer() {
-    return (
-    <div className='Footer'>
-        <div className="FooterChild FooterName">
-            Shoaib Jadallah
+  return (
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__top">
+          <a href="#home" className="footer__logo">
+            <span className="footer__logo-path">~/</span>
+            <span className="footer__logo-name">sj</span>
+            <span className="footer__logo-prompt"> $</span>
+            <span className="footer__logo-cursor"></span>
+          </a>
+          <nav className="footer__nav">
+            <a href="#home" className="footer__nav-link">Home</a>
+            <a href="#about" className="footer__nav-link">About</a>
+            <a href="#experience" className="footer__nav-link">Experience</a>
+            <a href="#skills" className="footer__nav-link">Skills</a>
+            <a href="#projects" className="footer__nav-link">Projects</a>
+            <a href="#contact" className="footer__nav-link">Contact</a>
+          </nav>
         </div>
-        <div className="FooterChild FooterReach">
-            For more information reach me in one of this links :
+        <div className="footer__divider"></div>
+        <div className="footer__bottom">
+          <p className="footer__copy">
+            &copy; {new Date().getFullYear()} Shoaib Jadallah. All rights reserved.
+          </p>
+          <p className="footer__credit">
+            Built with React
+          </p>
         </div>
-        <div className="FooterChild FooterIcons">
-            <a href='https://github.com/Sh0aib-Ja0allah' className='IconLink'><img src={github} alt="Github Icon" className="icon" /></a>
-            <a href='https://www.facebook.com/profile.php?id=100082226078414' className='IconLink'><img src={facebook} alt="Facebook Icon" className="icon" /></a>
-            <a href='https://www.instagram.com/shoaib_ja0allah/' className='IconLink'><img src={instagram} alt="Instagram Icon" className="icon" /></a>
-            <a href='https://ps.linkedin.com/in/shoaib-jadallah-0a1595230' className='IconLink'><img src={linkedin} alt="LinkedIn Icon" className="icon" /></a>
-        </div>
-        <div className="FooterChild FooterRights">
-            <span>&copy;</span>All rights reserved.
-        </div>
-        <div className="FooterChild FooterMade">
-            Made with &#129293; By: Shoaib Jadallah.
-        </div>
-    </div>
-    )
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

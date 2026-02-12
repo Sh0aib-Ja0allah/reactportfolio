@@ -1,24 +1,24 @@
 import React from "react";
 import "./App.css";
-import About from "./components/About/About";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import Projects from "./components/Projects/Projects";
-import Projects2 from "./components/Projects2/Projects2";
-import Services from "./components/Services/Services";
+import About from "./components/About/About";
+import Experience from "./components/Experience/Experience";
 import Skills from "./components/Skills/Skills";
+import Projects from "./components/Projects/Projects";
+import Youtube from "./components/Youtube/Youtube";
 import Contacts from "./components/Contacts/Contacts";
-import Youtube from "./components/Youtube/Youtube.jsx";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="app">
+      <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
-      <Projects2 />
-      <Services />
       <Youtube />
       <Contacts />
       <Footer />

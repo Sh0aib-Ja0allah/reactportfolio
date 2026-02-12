@@ -1,147 +1,187 @@
-:root{
-    --mainColor: #f9004d;
-    --blackColor: #101010;
-    --blackColor2: #191919;
-    --grayColor: hsla(0,0%,100%,.6);
-    --skyColor: #4db5ff;
-    --whiteColor: white;
-    /* var(--..ColorName..) */
-  }
-  
-  *{
-      padding: 0;
-      margin: 0;
-      font-family: 'Josefin Sans', sans-serif;
-      box-sizing: border-box;
-      text-decoration: none;
-      color: var(--whiteColor);
-  }
-
-  .Youtube{
-    padding: 40px 0;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
+.tutorials {
+  background: var(--bg-secondary);
 }
 
-.youtubeTitle{
-  margin: 0 auto;
+.tutorials__header {
+  margin-bottom: 48px;
 }
 
-.Title{
-  font-size: 75px;
-  color: var(--whiteColor);
-  font-family: 'Times New Roman', Times, serif;
+.tutorials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
-/* the start of List and cards styling */
-.VideosList{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: var(--blackColor2);
-  margin: 50px auto;
-  height: 55vh;
-  width: 90%;
-  border-radius: 35px;
-  border-top: 3px solid var(--grayColor);
-  border-bottom: 3px solid var(--grayColor);
+.tutorials__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-.video{
-  display: flex;
-  width: 400px;
-  flex-direction: column;
-  margin-top: 2.5vh;
-  height: fit-content;
-
+.tutorials__card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.06);
 }
 
-.videoImage{
-  width: 400px;
-  height: 250px;
-  border-radius: 15px;
-}
-
-.videoData{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.name{
-  margin: 15px 0;
-}
-
-.rowOfData{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 0 15px;
-
-}
-
-.link{
-  background-color: var(--mainColor);
-  color: var(--whiteColor);
-  padding: 10px 15px;
-  border-radius: 30px;
-}
-
-.subscribe{
+.tutorials__card-thumb {
   position: relative;
-  align-self: flex-end;
-  top: 10px;
-  right: 75px;
-  background-color: var(--mainColor);
-  border-radius: 15px;
-  padding: 10px 15px;
-  width: fit-content;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+}
+
+.tutorials__card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tutorials__card:hover .tutorials__card-thumb img {
+  transform: scale(1.05);
+}
+
+.tutorials__card-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+}
+
+.tutorials__card:hover .tutorials__card-play {
+  opacity: 1;
+}
+
+.tutorials__card-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.tutorials__card-content {
+  padding: 20px 24px;
+}
+
+.tutorials__card-date {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tutorials__card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.tutorials__card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tutorials__card-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tutorials__card-tech {
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent-primary);
+  background: rgba(249, 115, 22, 0.08);
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+}
+
+.tutorials__card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.tutorials__card-link {
+  padding: 8px 18px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 1px
+  color: #fff;
+  background: var(--accent-primary);
+  border-radius: 8px;
+  transition: var(--transition);
 }
 
-@media (max-width: 600px) {
-  .VideosList{
-    height: fit-content;
-  }
+.tutorials__card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+}
 
-  .video{
-    width: 340px;
-  }
-  
-  .videoImage{
-    width: 340px;
-  }
+.tutorials__card-link--secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color-hover);
+}
 
-  .youtubeTitle{
-    margin: 0 50px;
-  }
+.tutorials__card-link--secondary:hover {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+  box-shadow: none;
+}
 
-  .Youtube{
-    padding: 40px 0;
-  }
+.tutorials__channel {
+  text-align: center;
+}
 
-  .subscribe{
-    position: relative;
-    align-self: flex-end;
-    top: 10px;
-    right: 25px;
+.tutorials__channel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  transition: var(--transition);
+}
+
+.tutorials__channel-link:hover {
+  color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 968px) {
+  .tutorials__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-/* tab */
-@media (max-width:900px) and (min-width:601px) {
-  .VideosList{
-    height: fit-content;
-    width: 500px;
+
+@media screen and (max-width: 600px) {
+  .tutorials__grid {
+    grid-template-columns: 1fr;
   }
 
-  .subscribe{
-    position: relative;
-    align-self: flex-end;
-    top: 10px;
-    right: 125px;
+  .tutorials__card-thumb {
+    height: 200px;
   }
 }

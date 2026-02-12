@@ -1,68 +1,58 @@
 import React from 'react';
-import "../Hero/Hero.css";
-import DesktopNav from "../DesktopNav/DesktopNav"
-import CV from "../assets/ShoaibJadallah's-CV.pdf"
+import './Hero.css';
+import BgImage from '../assets/Background.jpg';
 
-
-import home from '../assets/home.png'
-import about from '../assets/about.png'
-import skills from '../assets/skills.png'
-import services from '../assets/services.png'
-import contact from '../assets/contact.png'
-import projects from '../assets/projects.png'
-
-import menu from "../assets/menu.png"
-
-function hero() {
+function Hero() {
   return (
-    <div className='hero' id='home'>
-      <div className="displayMenu">
-        {/* Mobile menu Icon*/}
-        <img src={menu} alt="" className="menu" />
+    <section className="hero" id="home">
+      <div className="hero__bg-image" style={{ backgroundImage: `url(${BgImage})` }}></div>
+      <div className="hero__bg-grid"></div>
+      <div className="hero__glow hero__glow--1"></div>
+      <div className="hero__glow hero__glow--2"></div>
 
-        {/* Mobile NavMenu Section */}
-        <div className="navMobile">
-          <span>
-              <abbr title="Home Section"><a className="navMobileChild homeMobile" href='#home'><img className='docImg' src={home} alt="" /><div className="navMobileChildText">Home</div></a></abbr>
-          </span>
-          <span>
-              <abbr title="About Section"><a className="navMobileChild aboutMobile" href='#about'><img className='docImg' src={about} alt="" /><div className="navMobileChildText">About</div></a></abbr>
-          </span>
-          <span>
-              <abbr title=" Skills Section"><a className="navMobileChild skillsMobile" href='#skills'><img className='docImg' src={skills} alt="" /><div className="navMobileChildText">Skills</div></a></abbr>
-          </span>
-          <span>
-              <abbr title="Projects Section"><a className="navMobileChild projectsMobile" href='#projects'><img className='docImg' src={projects} alt="" /><div className="navMobileChildText">Projects</div></a></abbr>
-          </span>
-          <span>
-              <abbr title="Services Section"><a className="navMobileChild servicesMobile" href='#services'><img className='docImg' src={services} alt="" /><div className="navMobileChildText">Services</div></a></abbr>
-          </span>
-          <span>
-              <abbr title="Contacts Section"><a className="navMobileChild contactMobile" href='#contact'><img className='docImg' src={contact} alt="" /><div className="navMobileChildText">Contacts</div></a></abbr>
-          </span>
+      <div className="hero__content">
+        <span className="hero__greeting">Hello world, I'm</span>
+        <h1 className="hero__name">
+          Shoaib <span className="gradient-text">Jadallah</span>
+        </h1>
+        <h2 className="hero__title">Computer Systems Engineer & Front-End Developer</h2>
+        <p className="hero__description">
+          Skilled in ReactJS & React Native, with hands-on experience building
+          scalable, user-centric web and mobile applications. Passionate about
+          creating clean, performant, and accessible digital experiences.
+        </p>
+        <div className="hero__actions">
+          <a href="#contact" className="hero__btn hero__btn--primary">
+            Get In Touch
+          </a>
+          <a href="#experience" className="hero__btn hero__btn--secondary">
+            View My Work
+          </a>
+        </div>
+        <div className="hero__stats">
+          <div className="hero__stat">
+            <span className="hero__stat-number">3+</span>
+            <span className="hero__stat-label">Years Experience</span>
+          </div>
+          <div className="hero__stat">
+            <span className="hero__stat-number">9+</span>
+            <span className="hero__stat-label">Projects Built</span>
+          </div>
+          <div className="hero__stat">
+            <span className="hero__stat-number">3</span>
+            <span className="hero__stat-label">Companies</span>
+          </div>
         </div>
       </div>
 
-      {/* Hero Data Display */}
-      <div className='display'>
-        <h3 className='heroChild Hello'>
-          Hello world, I'm
-        </h3>
-        <h1 className='heroChild Name'>
-          <div><span className="color"></span>Shoaib </div><div className='none'>-</div><div><span className="color">Jadallah</span></div>
-        </h1>
-        <span className='heroChild CSE'>
-          I'm a Computer Systems Engineer.
-        </span>
-        <span className='heroChild displayCV'>
-          <a className='CV' href={CV} download>Download CV</a>
-        </span>
-      </div>
-
-      {/* Desktop Navbar */}
-      <DesktopNav />
-    </div>
-  )
+      <a href="#about" className="hero__scroll">
+        <div className="hero__scroll-indicator">
+          <div className="hero__scroll-dot"></div>
+        </div>
+        <span>Scroll down</span>
+      </a>
+    </section>
+  );
 }
 
-export default hero
+export default Hero;

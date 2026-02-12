@@ -1,38 +1,98 @@
-import React from 'react'
-import '../Skills/Skills.css'
-import check from '../assets/check.png'
+import React, { useState } from 'react';
+import './Skills.css';
+
+const skillCategories = [
+  {
+    title: 'Web & Mobile',
+    icon: '</>',
+    color: '#f97316',
+    skills: ['ReactJS', 'React Native', 'HTML & CSS', 'JavaScript', 'TypeScript', 'Angular', 'Flutter'],
+  },
+  {
+    title: 'Back-End & Database',
+    icon: '{}',
+    color: '#ec4899',
+    skills: ['ASP.NET Web API', 'C#', 'Python', 'Java', 'SQL Server', 'Oracle / PL-SQL', 'Entity Framework'],
+  },
+  {
+    title: 'Tools & Frameworks',
+    icon: '#',
+    color: '#a78bfa',
+    skills: ['Git & GitHub', 'Expo', 'Material UI', 'Bootstrap', 'Firebase', 'Vite', 'Linux', 'Jira'],
+  },
+];
+
+const softSkills = ['Team Leadership', 'Problem Solving', 'Time Management', 'Teamwork', 'Agile Methodology', 'Responsive Design', 'SPA Development', 'Quick Learner'];
 
 function Skills() {
-    return (
-    <div className='Skills' id='skills'>
-        <h1 className='SkillsTitle'>My Skills</h1>
-        <div className='SkillsChild'>
-            <div className="SubChild Front-end">
-                <h1 className='Subtitle'>Front-end Development</h1>
-                <div className='skill'><img alt='' src={check}></img><span></span>HTML .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>CSS .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Javascript .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Bootstrap .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>ReactJS .</div>
-            </div>
-            <div className="SubChild Back-end">
-                <h1 className='Subtitle'>Back-end Development</h1>
-                <div className='skill'><img alt='' src={check}></img><span></span>C++ .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Python .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Java .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>ASP.Net Core MVC .</div>
-            </div>
-            <div className="SubChild other">
-                <h1 className='Subtitle'>Other Skills</h1>
-                <div className='skill'><img alt='' src={check}></img><span></span>Flutter Tech .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>LINUX .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>SQL, PL/SQL .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Git .</div>
-                <div className='skill'><img alt='' src={check}></img><span></span>Github .</div>
-            </div>
+  const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <section className="skills" id="skills">
+      <div className="skills__container section">
+        <div className="skills__header">
+          <span className="section-label">Skills</span>
+          <h2 className="section-title">
+            My <span className="gradient-text">tech stack</span>
+          </h2>
+          <p className="section-subtitle">
+            Technologies and tools I work with to bring ideas to life.
+          </p>
         </div>
-    </div>
-    )
+
+        <div className="skills__layout">
+          <div className="skills__tabs">
+            {skillCategories.map((cat, i) => (
+              <button
+                key={i}
+                className={`skills__tab ${activeTab === i ? 'skills__tab--active' : ''}`}
+                onClick={() => setActiveTab(i)}
+                style={{ '--tab-color': cat.color }}
+              >
+                <span className="skills__tab-icon">{cat.icon}</span>
+                <span className="skills__tab-text">{cat.title}</span>
+                <span className="skills__tab-count">{cat.skills.length}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="skills__panel">
+            <div className="skills__panel-header">
+              <div
+                className="skills__panel-indicator"
+                style={{ '--indicator-color': skillCategories[activeTab].color }}
+              ></div>
+              <h3 className="skills__panel-title">{skillCategories[activeTab].title}</h3>
+            </div>
+            <div className="skills__tiles">
+              {skillCategories[activeTab].skills.map((skill, i) => (
+                <div
+                  className="skills__tile"
+                  key={`${activeTab}-${i}`}
+                  style={{
+                    '--tile-color': skillCategories[activeTab].color,
+                    animationDelay: `${i * 0.06}s`,
+                  }}
+                >
+                  <span className="skills__tile-dot"></span>
+                  <span className="skills__tile-name">{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="skills__soft">
+          <h3 className="skills__soft-title">Soft Skills</h3>
+          <div className="skills__soft-grid">
+            {softSkills.map((skill, i) => (
+              <span key={i} className="skills__soft-tag">{skill}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Skills
+export default Skills;
