@@ -3,31 +3,9 @@ import './Experience.css';
 
 const experiences = [
   {
-    company: 'aba agency',
-    role: 'React Native Developer',
-    period: 'Sep 2025 - Present',
-    highlights: [
-      'Developed a role-based, multi-department mobile app using React Native (Expo) for internal operations across HR, Management, Printing, Events, Design, and Marketing.',
-      'Built an employee attendance tracking system and a shared Calendar module with Meetings & Tasks management.',
-      'Developed multi-theme UI (Light, Dark, Dreamy) and multi-language support (Arabic, English).',
-    ],
-    fullHighlights: [
-      'Developed and maintained a role-based, multi-department mobile application using React Native (Expo) for internal company operations.',
-      'Implemented department-specific business logic and dynamic UI rendering for HR, Management, Printing, Events, Design, and Marketing departments.',
-      'Built an employee attendance tracking system enabling users to start/end work sessions, store daily attendance records, and review work history.',
-      'Contributed to a shared Calendar module featuring Meetings and Tasks management with date-based filtering and detailed views.',
-      'Developed a Settings module supporting multi-theme UI (Light, Dark, Dreamy) and multi-language support (Arabic, English).',
-      'Implemented drawer-based navigation to improve user flow and accessibility across app features.',
-      'Worked with an active user base of 70–100 employees, ensuring performance, scalability, and reliability.',
-      'Followed clean architecture principles, reusable components, custom hooks, and context-based state management.',
-      'Collaborated with cross-functional teams in an Agile environment, contributing to a scalable app designed as a reusable template for future clients.',
-    ],
-    technologies: ['React Native', 'Expo', 'Context API', 'Custom Hooks'],
-  },
-  {
-    company: 'GolfSnap',
+    company: 'Top MENA Talents',
     role: 'React Native Developer & ReactJS Web Developer',
-    period: 'Feb 2025 - Oct 2025',
+    period: 'Feb 2025 - Present',
     highlights: [
       'Built a cross-platform mobile app (iOS/Android) using React Native (Expo SDK 54) and React 19 for golfers to connect, organize games, and track scores.',
       'Participated in building a role-based admin portal with React 18, TypeScript, and Vite featuring four distinct dashboards with protected routes.',
@@ -50,9 +28,31 @@ const experiences = [
     technologies: ['React Native', 'ReactJS', 'TypeScript', 'Vite', 'SignalR', 'Firebase', 'Expo'],
   },
   {
+    company: 'aba agency',
+    role: 'React Native Developer',
+    period: 'Mar 2024 - Dec 2024',
+    highlights: [
+      'Developed a role-based, multi-department mobile app using React Native (Expo) for internal operations across HR, Management, Printing, Events, Design, and Marketing.',
+      'Built an employee attendance tracking system and a shared Calendar module with Meetings & Tasks management.',
+      'Developed multi-theme UI (Light, Dark, Dreamy) and multi-language support (Arabic, English).',
+    ],
+    fullHighlights: [
+      'Developed and maintained a role-based, multi-department mobile application using React Native (Expo) for internal company operations.',
+      'Implemented department-specific business logic and dynamic UI rendering for HR, Management, Printing, Events, Design, and Marketing departments.',
+      'Built an employee attendance tracking system enabling users to start/end work sessions, store daily attendance records, and review work history.',
+      'Contributed to a shared Calendar module featuring Meetings and Tasks management with date-based filtering and detailed views.',
+      'Developed a Settings module supporting multi-theme UI (Light, Dark, Dreamy) and multi-language support (Arabic, English).',
+      'Implemented drawer-based navigation to improve user flow and accessibility across app features.',
+      'Worked with an active user base of 70–100 employees, ensuring performance, scalability, and reliability.',
+      'Followed clean architecture principles, reusable components, custom hooks, and context-based state management.',
+      'Collaborated with cross-functional teams in an Agile environment, contributing to a scalable app designed as a reusable template for future clients.',
+    ],
+    technologies: ['React Native', 'Expo', 'Context API', 'Custom Hooks'],
+  },
+  {
     company: 'Staffready Mablewood',
     role: 'Front-End ReactJS Developer (Freelancer)',
-    period: 'Jun 2023 - Feb 2024',
+    period: 'Jun 2023 - Jan 2024',
     highlights: [
       'Rewrote an existing project using ReactJS and Material UI to enhance UX with a modern, user-friendly interface.',
       'Collaborated using Jira and Slack, contributing to version control and code reviews on GitHub.',
