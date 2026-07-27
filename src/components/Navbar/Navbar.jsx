@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import CV from '../assets/ShoaibJadallah\'s-CV.pdf';
 
+/* No "Home" entry — the logo links to #home. */
 const navLinks = [
-  { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
-        <a href="#home" className="navbar__logo">
+        <a href="#home" className="navbar__logo" aria-label="Home" onClick={closeMenu}>
           <span className="navbar__logo-path">~/</span>
           <span className="navbar__logo-name">sj</span>
           <span className="navbar__logo-prompt"> $</span>

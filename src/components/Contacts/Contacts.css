@@ -64,15 +64,18 @@ a.contact__info-value:hover {
   color: var(--accent-primary);
 }
 
+/* Spans the full column so its edges line up with the info cards above. */
 .contact__socials {
   display: flex;
   gap: 12px;
+  width: 100%;
   margin-top: 12px;
 }
 
 .contact__social {
-  width: 44px;
-  height: 44px;
+  flex: 1;
+  min-width: 0;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;

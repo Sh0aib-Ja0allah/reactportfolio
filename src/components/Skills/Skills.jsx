@@ -12,17 +12,23 @@ const skillCategories = [
     title: 'Back-End & Database',
     icon: '{}',
     color: '#ec4899',
-    skills: ['ASP.NET Web API', 'C#', 'Python', 'Java', 'SQL Server', 'Oracle / PL-SQL', 'Entity Framework'],
+    skills: ['ASP.NET Core', 'C#', 'Laravel / PHP', 'SignalR', 'Entity Framework', 'SQL Server', 'Oracle / PL-SQL', 'Python', 'Java'],
   },
   {
-    title: 'Tools & Frameworks',
+    title: 'Tools & Platforms',
     icon: '#',
     color: '#a78bfa',
-    skills: ['Git & GitHub', 'Expo', 'Material UI', 'Bootstrap', 'Firebase', 'Vite', 'Linux', 'Jira'],
+    skills: ['Git & GitHub', 'Expo & EAS', 'TanStack Query', 'Firebase', 'Sentry', 'Vite', 'Material UI', 'Bootstrap', 'Jira', 'Linux'],
+  },
+  {
+    title: 'Testing & Quality',
+    icon: '✓',
+    color: '#34d399',
+    skills: ['Jest', 'React Native Testing Library', 'Vitest', 'Playwright', 'MSW', 'ESLint'],
   },
 ];
 
-const softSkills = ['Team Leadership', 'Problem Solving', 'Time Management', 'Teamwork', 'Agile Methodology', 'Responsive Design', 'SPA Development', 'Quick Learner'];
+const softSkills = ['Team Leadership', 'Problem Solving', 'Time Management', 'Teamwork', 'Agile Methodology', 'Client Communication', 'Code Reviews', 'Quick Learner'];
 
 function Skills() {
   const [activeTab, setActiveTab] = useState(0);
