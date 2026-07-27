@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Skills.css';
+import CountUp from '../CountUp/CountUp';
 
 const skillCategories = [
   {
@@ -57,7 +58,12 @@ function Skills() {
               >
                 <span className="skills__tab-icon">{cat.icon}</span>
                 <span className="skills__tab-text">{cat.title}</span>
-                <span className="skills__tab-count">{cat.skills.length}</span>
+                <CountUp
+                  className="skills__tab-count"
+                  end={cat.skills.length}
+                  duration={1100}
+                  delay={i * 120}
+                />
               </button>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import BgImage from '../assets/Background.jpg';
+import CountUp from '../CountUp/CountUp';
 
 function Hero() {
   return (
@@ -29,17 +30,19 @@ function Hero() {
             View My Work
           </a>
         </div>
+        {/* Staggered so the three figures land one after another rather
+            than ticking in unison. */}
         <div className="hero__stats">
           <div className="hero__stat">
-            <span className="hero__stat-number">3+</span>
+            <CountUp className="hero__stat-number" end={3} suffix="+" delay={200} />
             <span className="hero__stat-label">Years Experience</span>
           </div>
           <div className="hero__stat">
-            <span className="hero__stat-number">5+</span>
+            <CountUp className="hero__stat-number" end={5} suffix="+" delay={350} />
             <span className="hero__stat-label">Production Apps</span>
           </div>
           <div className="hero__stat">
-            <span className="hero__stat-number">3</span>
+            <CountUp className="hero__stat-number" end={3} delay={500} />
             <span className="hero__stat-label">Companies</span>
           </div>
         </div>

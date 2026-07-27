@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import AboutImage from '../assets/chip.jpg';
+import CountUp from '../CountUp/CountUp';
 
 /* Feather-style stroke icons, drawn inside a shared 24px viewBox. */
 const infoItems = [
@@ -21,7 +22,11 @@ const infoItems = [
   },
   {
     label: 'Experience',
-    value: '3+ years, 5 apps shipped',
+    value: (
+      <>
+        <CountUp end={3} suffix="+" /> years, <CountUp end={5} delay={150} /> apps shipped
+      </>
+    ),
     icon: (
       <>
         <path d="M23 6l-9.5 9.5-5-5L1 18" />
