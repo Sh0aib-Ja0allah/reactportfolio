@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/reactportfolio/static/css/main.0f7a7303.css",
-    "main.js": "/reactportfolio/static/js/main.b47747a9.js",
+    "main.js": "/reactportfolio/static/js/main.ea5d402e.js",
     "static/media/Background.jpg": "/reactportfolio/static/media/Background.9cffc6e69f457555039c.jpg",
     "static/media/video3.png": "/reactportfolio/static/media/video3.f0843a8a4fd39b8b3cbf.png",
     "static/media/video2.png": "/reactportfolio/static/media/video2.e8dfaa530b327404c9a8.png",
@@ -12,7 +12,7 @@
     "static/media/video1.jpg": "/reactportfolio/static/media/video1.fc7771b0686690b08592.jpg",
     "static/media/chip.jpg": "/reactportfolio/static/media/chip.3fa5b0ed809008264cd6.jpg",
     "static/media/Projects-Section-template.png": "/reactportfolio/static/media/Projects-Section-template.cf3c28d076e6e56bad20.png",
-    "static/media/ShoaibJadallah's-CV.pdf": "/reactportfolio/static/media/ShoaibJadallah's-CV.97619f99d8519933d0e1.pdf",
+    "static/media/ShoaibJadallah's-CV.pdf": "/reactportfolio/static/media/ShoaibJadallah's-CV.a5aacb62cd5b98cc1e63.pdf",
     "static/media/golfsnap-portal.png": "/reactportfolio/static/media/golfsnap-portal.5101a5309310ee1e653e.png",
     "static/media/sho3la.png": "/reactportfolio/static/media/sho3la.94fb4bca48717d2f8837.png",
     "static/media/golfsnap.png": "/reactportfolio/static/media/golfsnap.322cdde9d2a4a44d0358.png",
@@ -28,10 +28,10 @@
     "static/media/animated-emog.png": "/reactportfolio/static/media/animated-emog.b51dbd82017b3db774e2.png",
     "index.html": "/reactportfolio/index.html",
     "main.0f7a7303.css.map": "/reactportfolio/static/css/main.0f7a7303.css.map",
-    "main.b47747a9.js.map": "/reactportfolio/static/js/main.b47747a9.js.map"
+    "main.ea5d402e.js.map": "/reactportfolio/static/js/main.ea5d402e.js.map"
   },
   "entrypoints": [
     "static/css/main.0f7a7303.css",
-    "static/js/main.b47747a9.js"
+    "static/js/main.ea5d402e.js"
   ]
 }
