@@ -67,11 +67,17 @@
 }
 
 .projects__card {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
+}
+
+.projects__card-image {
+  flex-shrink: 0;
 }
 
 .projects__card:hover {
@@ -260,7 +266,12 @@
   color: var(--accent-secondary);
 }
 
+/* Column layout so every card's footer lands on the same baseline,
+   however long its title, description or tech list happens to be. */
 .projects__card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 20px 24px;
 }
 
@@ -272,10 +283,18 @@
   margin-bottom: 2px;
 }
 
+/* Reserve two lines so single- and double-line titles start their
+   subtitle at the same height across a row. */
 .projects__card-title {
   font-size: 18px;
   font-weight: 700;
+  line-height: 1.3;
+  min-height: 2.6em;
   color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .projects__card-date {
@@ -289,14 +308,21 @@
 .projects__card-subtitle {
   font-size: 13px;
   font-weight: 500;
+  line-height: 1.45;
+  min-height: 2.9em;
   color: var(--accent-primary);
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .projects__card-desc {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.6;
+  min-height: 4.8em;
   margin-bottom: 16px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -344,7 +370,7 @@
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid var(--border-color);
 }

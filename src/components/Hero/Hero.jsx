@@ -15,17 +15,17 @@ function Hero() {
         <h1 className="hero__name">
           Shoaib <span className="gradient-text">Jadallah</span>
         </h1>
-        <h2 className="hero__title">Computer Systems Engineer & Front-End Developer</h2>
+        <h2 className="hero__title">Full Stack Developer · Mobile &amp; Web</h2>
         <p className="hero__description">
-          Skilled in ReactJS & React Native, with hands-on experience building
-          scalable, user-centric web and mobile applications. Passionate about
-          creating clean, performant, and accessible digital experiences.
+          I build production apps that ship to the App Store and Google Play —
+          React Native, ReactJS, and TypeScript on the front, ASP.NET Core and
+          Laravel behind them.
         </p>
         <div className="hero__actions">
           <a href="#contact" className="hero__btn hero__btn--primary">
             Get In Touch
           </a>
-          <a href="#experience" className="hero__btn hero__btn--secondary">
+          <a href="#projects" className="hero__btn hero__btn--secondary">
             View My Work
           </a>
         </div>
@@ -35,8 +35,8 @@ function Hero() {
             <span className="hero__stat-label">Years Experience</span>
           </div>
           <div className="hero__stat">
-            <span className="hero__stat-number">9+</span>
-            <span className="hero__stat-label">Projects Built</span>
+            <span className="hero__stat-number">5+</span>
+            <span className="hero__stat-label">Production Apps</span>
           </div>
           <div className="hero__stat">
             <span className="hero__stat-number">3</span>
