@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactportfolio/static/css/main.ca23cc8b.css",
-    "main.js": "/reactportfolio/static/js/main.18bff519.js",
+    "main.css": "/reactportfolio/static/css/main.0f7a7303.css",
+    "main.js": "/reactportfolio/static/js/main.b47747a9.js",
     "static/media/Background.jpg": "/reactportfolio/static/media/Background.9cffc6e69f457555039c.jpg",
     "static/media/video3.png": "/reactportfolio/static/media/video3.f0843a8a4fd39b8b3cbf.png",
     "static/media/video2.png": "/reactportfolio/static/media/video2.e8dfaa530b327404c9a8.png",
@@ -13,7 +13,9 @@
     "static/media/chip.jpg": "/reactportfolio/static/media/chip.3fa5b0ed809008264cd6.jpg",
     "static/media/Projects-Section-template.png": "/reactportfolio/static/media/Projects-Section-template.cf3c28d076e6e56bad20.png",
     "static/media/ShoaibJadallah's-CV.pdf": "/reactportfolio/static/media/ShoaibJadallah's-CV.97619f99d8519933d0e1.pdf",
+    "static/media/golfsnap-portal.png": "/reactportfolio/static/media/golfsnap-portal.5101a5309310ee1e653e.png",
     "static/media/sho3la.png": "/reactportfolio/static/media/sho3la.94fb4bca48717d2f8837.png",
+    "static/media/golfsnap.png": "/reactportfolio/static/media/golfsnap.322cdde9d2a4a44d0358.png",
     "static/media/shertee.png": "/reactportfolio/static/media/shertee.e82e12441b341953c569.png",
     "static/media/nft.png": "/reactportfolio/static/media/nft.ed70a9478287167ae732.png",
     "static/media/smart.png": "/reactportfolio/static/media/smart.652e228e08e25ade5f76.png",
@@ -21,14 +23,15 @@
     "static/media/clock-design.png": "/reactportfolio/static/media/clock-design.4238d4c864bc41e48fc5.png",
     "static/media/pureJS.png": "/reactportfolio/static/media/pureJS.77d22ba224005450d4fc.png",
     "static/media/signup.png": "/reactportfolio/static/media/signup.5ebef22335a88e9ec50b.png",
+    "static/media/custvice.png": "/reactportfolio/static/media/custvice.18c68deb3228c8cc0739.png",
     "static/media/practice.png": "/reactportfolio/static/media/practice.e8a181d38077724c0467.png",
     "static/media/animated-emog.png": "/reactportfolio/static/media/animated-emog.b51dbd82017b3db774e2.png",
     "index.html": "/reactportfolio/index.html",
-    "main.ca23cc8b.css.map": "/reactportfolio/static/css/main.ca23cc8b.css.map",
-    "main.18bff519.js.map": "/reactportfolio/static/js/main.18bff519.js.map"
+    "main.0f7a7303.css.map": "/reactportfolio/static/css/main.0f7a7303.css.map",
+    "main.b47747a9.js.map": "/reactportfolio/static/js/main.b47747a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca23cc8b.css",
-    "static/js/main.18bff519.js"
+    "static/css/main.0f7a7303.css",
+    "static/js/main.b47747a9.js"
   ]
 }
