@@ -1,3 +1,22 @@
+/* A slow cool pulse beside the timeline, with a warm drift low left. */
+.experience::before {
+  width: 520px;
+  height: 520px;
+  top: 12%;
+  right: -200px;
+  background: var(--ambient-cool);
+  animation: ambientPulse 21s ease-in-out infinite;
+}
+
+.experience::after {
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  left: -150px;
+  background: var(--ambient-warm);
+  animation: ambientDriftA 27s ease-in-out infinite;
+}
+
 .experience {
   background: var(--bg-primary);
 }

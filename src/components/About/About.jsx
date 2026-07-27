@@ -69,7 +69,7 @@ const infoItems = [
 
 function About() {
   return (
-    <section className="about" id="about">
+    <section className="about ambient" id="about">
       <div className="about__container section">
         <div className="about__image-wrapper">
           <div className="about__image-border"></div>

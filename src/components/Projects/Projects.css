@@ -1,4 +1,24 @@
-﻿.projects {
+﻿/* Warm drift high right, cool pulse low left — the widest spread of the
+   five, since this is the tallest section. */
+.projects::before {
+  width: 500px;
+  height: 500px;
+  top: -160px;
+  right: -180px;
+  background: var(--ambient-warm);
+  animation: ambientDriftA 25s ease-in-out infinite;
+}
+
+.projects::after {
+  width: 440px;
+  height: 440px;
+  bottom: 6%;
+  left: -190px;
+  background: var(--ambient-cool);
+  animation: ambientPulse 18s ease-in-out infinite;
+}
+
+.projects {
   background: var(--bg-primary);
 }
 

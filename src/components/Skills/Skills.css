@@ -1,4 +1,23 @@
-﻿.skills {
+﻿/* Counter-drifting pair, warm left and cool right. */
+.skills::before {
+  width: 440px;
+  height: 440px;
+  top: 8%;
+  left: -180px;
+  background: var(--ambient-warm);
+  animation: ambientDriftB 23s ease-in-out infinite;
+}
+
+.skills::after {
+  width: 420px;
+  height: 420px;
+  bottom: -100px;
+  right: -170px;
+  background: var(--ambient-cool);
+  animation: ambientDriftA 17s ease-in-out infinite;
+}
+
+.skills {
   background: var(--bg-secondary);
 }
 

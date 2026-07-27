@@ -91,7 +91,7 @@ function Experience() {
   };
 
   return (
-    <section className="experience" id="experience">
+    <section className="experience ambient" id="experience">
       <div className="experience__container section">
         <div className="experience__header">
           <span className="section-label">Experience</span>

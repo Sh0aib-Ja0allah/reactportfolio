@@ -1,3 +1,23 @@
+/* Ambient orbs — warm drifting in from the top left, cool from the
+   bottom right, on deliberately mismatched cycles. */
+.about::before {
+  width: 460px;
+  height: 460px;
+  top: -140px;
+  left: -160px;
+  background: var(--ambient-warm);
+  animation: ambientDriftA 19s ease-in-out infinite;
+}
+
+.about::after {
+  width: 400px;
+  height: 400px;
+  bottom: -130px;
+  right: -140px;
+  background: var(--ambient-cool);
+  animation: ambientDriftB 24s ease-in-out infinite;
+}
+
 .about {
   background: var(--bg-secondary);
 }

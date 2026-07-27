@@ -37,6 +37,8 @@
   --neutral-bg: rgba(10, 10, 10, 0.6);
   --neutral-text: rgba(255, 255, 255, 0.75);
   --neutral-border: rgba(255, 255, 255, 0.18);
+  --ambient-warm: rgba(249, 115, 22, 0.11);
+  --ambient-cool: rgba(236, 72, 153, 0.1);
 }
 
 :root[data-theme='light'] {
@@ -65,6 +67,9 @@
   --neutral-bg: rgba(230, 228, 222, 0.92);
   --neutral-text: #4d4d55;
   --neutral-border: rgba(0, 0, 0, 0.16);
+  /* Tinted washes need more strength to register on a light page. */
+  --ambient-warm: rgba(249, 115, 22, 0.2);
+  --ambient-cool: rgba(236, 72, 153, 0.17);
 }
 
 .app {
@@ -111,6 +116,66 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ---------------------------------------------------------------------
+ * Ambient section background — two blurred orbs drifting behind the
+ * content, opted into with .ambient.
+ *
+ * isolation:isolate makes the section its own stacking context, so the
+ * orbs at z-index -1 paint above the section background but below every
+ * child. No z-index changes are needed inside the sections themselves.
+ * ------------------------------------------------------------------- */
+.ambient {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ambient::before,
+.ambient::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+@keyframes ambientDriftA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, 45px) scale(1.14); }
+}
+
+@keyframes ambientDriftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, -40px) scale(0.9); }
+}
+
+@keyframes ambientPulse {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* The orbs are decoration; hold them still when motion is unwelcome. */
+@media (prefers-reduced-motion: reduce) {
+  .ambient::before,
+  .ambient::after {
+    animation: none !important;
+  }
+}
+
+/* Half the blurred layers on small screens, where they cost the most
+   and are least visible. */
+@media screen and (max-width: 768px) {
+  .ambient::after {
+    display: none;
+  }
+
+  .ambient::before {
+    filter: blur(80px);
+  }
 }
 
 /* ---------------------------------------------------------------------

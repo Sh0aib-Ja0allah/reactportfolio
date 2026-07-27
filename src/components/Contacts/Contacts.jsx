@@ -18,7 +18,7 @@ function Contacts() {
   };
 
   return (
-    <section className="contact" id="contact">
+    <section className="contact ambient" id="contact">
       <div className="contact__container section">
         <div className="contact__header">
           <span className="section-label">Contact</span>

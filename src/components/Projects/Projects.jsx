@@ -190,7 +190,7 @@ function Projects() {
   }, [activeCategory, activePlatform]);
 
   return (
-    <section className="projects" id="projects">
+    <section className="projects ambient" id="projects">
       <div className="projects__container section">
         <div className="projects__header">
           <span className="section-label">Portfolio</span>

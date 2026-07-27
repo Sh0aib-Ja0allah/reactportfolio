@@ -35,7 +35,7 @@ function Skills() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="skills" id="skills">
+    <section className="skills ambient" id="skills">
       <div className="skills__container section">
         <div className="skills__header">
           <span className="section-label">Skills</span>
