@@ -257,7 +257,7 @@ function Projects() {
                 project.links.some((link) => link.url.includes('github.com'));
 
               return (
-                <div className="projects__card" key={project.index}>
+                <div className="projects__card glow-border" key={project.index}>
                   <div className="projects__card-image">
                     <ProjectCover project={project} />
                     {hasLinks && (

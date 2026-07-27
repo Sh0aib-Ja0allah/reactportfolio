@@ -113,6 +113,71 @@
   background-clip: text;
 }
 
+/* ---------------------------------------------------------------------
+ * Animated gradient border, opted into with .glow-border.
+ * A conic gradient is painted over the card and then masked down to a
+ * thin ring, so the card's own background is never touched. Rotating
+ * --glow-angle sweeps the accent around the outline on hover.
+ * ------------------------------------------------------------------- */
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  padding: 1.5px;
+  /* Static ring for engines without @property support. */
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0deg,
+    var(--accent-primary) 60deg,
+    var(--accent-secondary) 130deg,
+    transparent 200deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* focus-within covers keyboard users, and drives the effect for wrappers
+   around inputs — which cannot carry pseudo-elements themselves. */
+.glow-border:hover::after,
+.glow-border:focus-within::after {
+  opacity: 1;
+  animation: glowSpin 2.6s linear infinite;
+}
+
+@keyframes glowSpin {
+  to { --glow-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-border:hover::after,
+  .glow-border:focus-within::after {
+    animation: none;
+  }
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }

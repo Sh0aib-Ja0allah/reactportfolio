@@ -18,7 +18,7 @@ function Youtube() {
 
         <div className="tutorials__grid">
           {YoutubeData.map((video, i) => (
-            <div className="tutorials__card" key={i}>
+            <div className="tutorials__card glow-border" key={i}>
               <div className="tutorials__card-thumb">
                 <img src={video.image} alt={video.alt} />
                 <a

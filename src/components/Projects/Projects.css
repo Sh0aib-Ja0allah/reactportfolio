@@ -83,7 +83,7 @@
 .projects__card:hover {
   border-color: var(--border-color-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.08);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.16);
 }
 
 .projects__card-image {
