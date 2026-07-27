@@ -1,19 +1,21 @@
 import React from 'react';
 import './Youtube.css';
 import { YoutubeData } from './YoutubeData';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 function Youtube() {
+  const { t } = useLanguage();
+
   return (
     <section className="tutorials" id="tutorials">
       <div className="tutorials__container section">
         <div className="tutorials__header">
-          <span className="section-label">Tutorials</span>
+          <span className="section-label">{t('tutorials.label')}</span>
           <h2 className="section-title">
-            Featured <span className="gradient-text">content</span>
+            {t('tutorials.titleLead')}{' '}
+            <span className="gradient-text">{t('tutorials.titleAccent')}</span>
           </h2>
-          <p className="section-subtitle">
-            Tech tutorials I've created to share knowledge with the developer community.
-          </p>
+          <p className="section-subtitle">{t('tutorials.subtitle')}</p>
         </div>
 
         <div className="tutorials__grid">
@@ -50,7 +52,7 @@ function Youtube() {
                     rel="noopener noreferrer"
                     className="tutorials__card-link"
                   >
-                    Watch Video
+                    {t('tutorials.watch')}
                   </a>
                   <a
                     href={video.githubSource}
@@ -73,7 +75,7 @@ function Youtube() {
             rel="noopener noreferrer"
             className="tutorials__channel-link"
           >
-            View my YouTube channel
+            {t('tutorials.channel')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>

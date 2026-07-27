@@ -8,6 +8,32 @@
   --radius-lg: 24px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width: 1100px;
+  /* Sign multiplier for directional transforms. Logical properties cover
+     layout, but translateX has no logical equivalent — so anything that
+     slides "forward" multiplies by this instead of hardcoding a sign. */
+  --dir: 1;
+}
+
+[dir='rtl'] {
+  --dir: -1;
+}
+
+/* Arrow glyphs point along the reading direction, so mirror the icon
+   itself rather than only its motion. */
+[dir='rtl'] .about__cta svg,
+[dir='rtl'] .tutorials__channel-link svg {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .about__cta:hover svg {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* The corner glow should originate from the reading-side corner. */
+[dir='rtl'] .about__info-grid {
+  background:
+    radial-gradient(120% 100% at 100% 0%, rgba(249, 115, 22, 0.07) 0%, transparent 55%),
+    var(--bg-card);
 }
 
 /* Dark is the default, and also the explicit [data-theme='dark'] value. */

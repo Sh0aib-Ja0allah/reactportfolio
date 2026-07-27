@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Experience.css';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const experiences = [
   {
@@ -81,6 +82,7 @@ const experiences = [
 ];
 
 function Experience() {
+  const { t } = useLanguage();
   const [expandedCards, setExpandedCards] = useState({});
 
   const toggleCard = (index) => {
@@ -94,19 +96,22 @@ function Experience() {
     <section className="experience ambient" id="experience">
       <div className="experience__container section">
         <div className="experience__header">
-          <span className="section-label">Experience</span>
+          <span className="section-label">{t('experience.label')}</span>
           <h2 className="section-title">
-            Where I've <span className="gradient-text">worked</span>
+            {t('experience.titleLead')}{' '}
+            <span className="gradient-text">{t('experience.titleAccent')}</span>
           </h2>
-          <p className="section-subtitle">
-            My professional journey building web and mobile applications.
-          </p>
+          <p className="section-subtitle">{t('experience.subtitle')}</p>
         </div>
 
         <div className="experience__timeline">
           {experiences.map((exp, index) => {
             const isExpanded = expandedCards[index];
-            const displayHighlights = isExpanded ? exp.fullHighlights : exp.highlights;
+            /* Translations are keyed by company name, which never changes. */
+            const localised = t(`experience.roles.${exp.company}`) || {};
+            const displayHighlights = isExpanded
+              ? localised.fullHighlights || exp.fullHighlights
+              : localised.highlights || exp.highlights;
 
             return (
               <div className="experience__item" key={index}>
@@ -115,9 +120,11 @@ function Experience() {
                   <div className="experience__card-header">
                     <div>
                       <h3 className="experience__company">{exp.company}</h3>
-                      <p className="experience__role">{exp.role}</p>
+                      <p className="experience__role">{localised.role || exp.role}</p>
                     </div>
-                    <span className="experience__period">{exp.period}</span>
+                    <span className="experience__period">
+                      {localised.period || exp.period}
+                    </span>
                   </div>
                   <ul className="experience__highlights">
                     {displayHighlights.map((highlight, i) => (
@@ -136,7 +143,7 @@ function Experience() {
                       className="experience__toggle"
                       onClick={() => toggleCard(index)}
                     >
-                      {isExpanded ? 'Show less' : 'Read more'}
+                      {t(isExpanded ? 'experience.showLess' : 'experience.readMore')}
                       <svg
                         className={`experience__toggle-icon ${isExpanded ? 'experience__toggle-icon--up' : ''}`}
                         width="14"

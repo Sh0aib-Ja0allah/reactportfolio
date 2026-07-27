@@ -2,8 +2,11 @@ import React from 'react';
 import './Hero.css';
 import BgImage from '../assets/Background.jpg';
 import CountUp from '../CountUp/CountUp';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="hero" id="home">
       <div className="hero__bg-image" style={{ backgroundImage: `url(${BgImage})` }}></div>
@@ -12,22 +15,21 @@ function Hero() {
       <div className="hero__glow hero__glow--2"></div>
 
       <div className="hero__content">
-        <span className="hero__greeting">Hello world, I'm</span>
+        <span className="hero__greeting">{t('hero.greeting')}</span>
         <h1 className="hero__name">
-          Shoaib <span className="gradient-text">Jadallah</span>
+          {t('about.valueName').split(' ')[0]}{' '}
+          <span className="gradient-text">
+            {t('about.valueName').split(' ').slice(1).join(' ')}
+          </span>
         </h1>
-        <h2 className="hero__title">Full Stack Developer · Mobile &amp; Web</h2>
-        <p className="hero__description">
-          I build production apps that ship to the App Store and Google Play —
-          React Native, ReactJS, and TypeScript on the front, ASP.NET Core and
-          Laravel behind them.
-        </p>
+        <h2 className="hero__title">{t('hero.title')}</h2>
+        <p className="hero__description">{t('hero.description')}</p>
         <div className="hero__actions">
           <a href="#contact" className="hero__btn hero__btn--primary">
-            Get In Touch
+            {t('hero.getInTouch')}
           </a>
           <a href="#projects" className="hero__btn hero__btn--secondary">
-            View My Work
+            {t('hero.viewWork')}
           </a>
         </div>
         {/* Staggered so the three figures land one after another rather
@@ -35,15 +37,15 @@ function Hero() {
         <div className="hero__stats">
           <div className="hero__stat">
             <CountUp className="hero__stat-number" end={3} suffix="+" delay={200} />
-            <span className="hero__stat-label">Years Experience</span>
+            <span className="hero__stat-label">{t('hero.statYears')}</span>
           </div>
           <div className="hero__stat">
             <CountUp className="hero__stat-number" end={5} suffix="+" delay={350} />
-            <span className="hero__stat-label">Production Apps</span>
+            <span className="hero__stat-label">{t('hero.statApps')}</span>
           </div>
           <div className="hero__stat">
             <CountUp className="hero__stat-number" end={3} delay={500} />
-            <span className="hero__stat-label">Companies</span>
+            <span className="hero__stat-label">{t('hero.statCompanies')}</span>
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@ function Hero() {
         <div className="hero__scroll-indicator">
           <div className="hero__scroll-dot"></div>
         </div>
-        <span>Scroll down</span>
+        <span>{t('hero.scroll')}</span>
       </a>
     </section>
   );

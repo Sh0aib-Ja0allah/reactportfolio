@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
@@ -40,17 +41,19 @@ function App() {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
 
   return (
-    <div className="app">
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Youtube />
-      <Contacts />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="app">
+        <Navbar theme={theme} onToggleTheme={toggleTheme} />
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Youtube />
+        <Contacts />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

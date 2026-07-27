@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import './Contacts.css';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 function Contacts() {
+  const { t } = useLanguage();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -21,13 +23,12 @@ function Contacts() {
     <section className="contact ambient" id="contact">
       <div className="contact__container section">
         <div className="contact__header">
-          <span className="section-label">Contact</span>
+          <span className="section-label">{t('contact.label')}</span>
           <h2 className="section-title">
-            Let's work <span className="gradient-text">together</span>
+            {t('contact.titleLead')}{' '}
+            <span className="gradient-text">{t('contact.titleAccent')}</span>
           </h2>
-          <p className="section-subtitle">
-            Have a project in mind or just want to say hello? I'd love to hear from you.
-          </p>
+          <p className="section-subtitle">{t('contact.subtitle')}</p>
         </div>
 
         <div className="contact__content">
@@ -35,7 +36,7 @@ function Contacts() {
             <div className="contact__info-card glow-border">
               <div className="contact__info-icon">&#9993;</div>
               <div>
-                <h4 className="contact__info-title">Email</h4>
+                <h4 className="contact__info-title">{t('contact.email')}</h4>
                 <a href="mailto:shoib.jadallah@gmail.com" className="contact__info-value">
                   shoib.jadallah@gmail.com
                 </a>
@@ -45,7 +46,7 @@ function Contacts() {
             <div className="contact__info-card glow-border">
               <div className="contact__info-icon">&#9742;</div>
               <div>
-                <h4 className="contact__info-title">Phone / WhatsApp</h4>
+                <h4 className="contact__info-title">{t('contact.phone')}</h4>
                 <a href="https://api.whatsapp.com/send?phone=972512060643" className="contact__info-value">
                   +972 512 060 643
                 </a>
@@ -55,8 +56,8 @@ function Contacts() {
             <div className="contact__info-card glow-border">
               <div className="contact__info-icon">&#9906;</div>
               <div>
-                <h4 className="contact__info-title">Location</h4>
-                <span className="contact__info-value">Madama, Nablus, Palestine</span>
+                <h4 className="contact__info-title">{t('contact.location')}</h4>
+                <span className="contact__info-value">{t('contact.locationValue')}</span>
               </div>
             </div>
 
@@ -82,7 +83,7 @@ function Contacts() {
           <form ref={form} className="contact__form" onSubmit={sendEmail}>
             <div className="contact__form-row">
               <div className="contact__form-group">
-                <label className="contact__form-label" htmlFor="name">Full Name</label>
+                <label className="contact__form-label" htmlFor="name">{t('contact.formName')}</label>
                 {/* Wrapper carries the glow — inputs cannot host pseudo-elements. */}
                 <span className="contact__form-field glow-border">
                   <input
@@ -90,40 +91,40 @@ function Contacts() {
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Your name"
+                    placeholder={t('contact.formNamePlaceholder')}
                     required
                   />
                 </span>
               </div>
               <div className="contact__form-group">
-                <label className="contact__form-label" htmlFor="email">Email</label>
+                <label className="contact__form-label" htmlFor="email">{t('contact.formEmail')}</label>
                 <span className="contact__form-field glow-border">
                   <input
                     className="contact__form-input"
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Your email"
+                    placeholder={t('contact.formEmailPlaceholder')}
                     required
                   />
                 </span>
               </div>
             </div>
             <div className="contact__form-group">
-              <label className="contact__form-label" htmlFor="massage">Message</label>
+              <label className="contact__form-label" htmlFor="massage">{t('contact.formMessage')}</label>
               <span className="contact__form-field contact__form-field--area glow-border">
                 <textarea
                   className="contact__form-input contact__form-textarea"
                   id="massage"
                   name="massage"
                   rows="6"
-                  placeholder="Your message..."
+                  placeholder={t('contact.formMessagePlaceholder')}
                   required
                 ></textarea>
               </span>
             </div>
             <button type="submit" className="contact__form-btn">
-              Send Message
+              {t('contact.send')}
             </button>
           </form>
         </div>

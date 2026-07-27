@@ -51,7 +51,7 @@
 
 .contact__info-card:hover {
   border-color: var(--border-color-hover);
-  transform: translateX(4px);
+  transform: translateX(calc(4px * var(--dir)));
 }
 
 .contact__info-icon {

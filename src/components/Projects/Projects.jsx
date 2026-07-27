@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './Projects.css';
 import { ProjectsData } from './ProjectsData';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 /* Two independent filter groups — a project must match both to be shown.
    Category has no "All": the section opens on production client work. */
 const categoryFilters = [
-  { key: 'production', label: 'Production' },
-  { key: 'academic', label: 'Practice' },
+  { key: 'production', labelKey: 'filterProduction' },
+  { key: 'academic', labelKey: 'filterPractice' },
 ];
 
 const platformFilters = [
-  { key: 'all', label: 'All' },
-  { key: 'mobile', label: 'Mobile' },
-  { key: 'web', label: 'Web' },
+  { key: 'all', labelKey: 'filterAll' },
+  { key: 'mobile', labelKey: 'filterMobile' },
+  { key: 'web', labelKey: 'filterWeb' },
 ];
 
 const PAGE_SIZE = 6;
@@ -49,7 +50,7 @@ function ProjectCover({ project }) {
   );
 }
 
-function ProjectDialog({ project, onClose }) {
+function ProjectDialog({ project, onClose, t, copy }) {
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') onClose();
@@ -76,7 +77,11 @@ function ProjectDialog({ project, onClose }) {
         aria-labelledby="projects-dialog-title"
         onClick={(event) => event.stopPropagation()}
       >
-        <button className="projects__dialog-close" onClick={onClose} aria-label="Close">
+        <button
+          className="projects__dialog-close"
+          onClick={onClose}
+          aria-label={t('projects.close')}
+        >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
@@ -93,28 +98,28 @@ function ProjectDialog({ project, onClose }) {
             </h3>
             <span className="projects__card-date">{project.date}</span>
           </div>
-          {project.subtitle && (
-            <p className="projects__card-subtitle">{project.subtitle}</p>
+          {copy.subtitle && (
+            <p className="projects__card-subtitle">{copy.subtitle}</p>
           )}
 
           <span className={`projects__dialog-badge projects__badge--${project.ownership.tone}`}>
-            {project.ownership.label}
+            {t(`projects.ownership.${project.ownership.tone}`)}
           </span>
 
-          <p className="projects__dialog-desc">{project.description}</p>
+          <p className="projects__dialog-desc">{copy.description}</p>
 
-          {project.highlights && (
+          {copy.highlights && copy.highlights.length > 0 && (
             <>
-              <h4 className="projects__dialog-subhead">What I built</h4>
+              <h4 className="projects__dialog-subhead">{t('projects.whatIBuilt')}</h4>
               <ul className="projects__card-highlights">
-                {project.highlights.map((highlight, i) => (
+                {copy.highlights.map((highlight, i) => (
                   <li key={i}>{highlight}</li>
                 ))}
               </ul>
             </>
           )}
 
-          <h4 className="projects__dialog-subhead">Built with</h4>
+          <h4 className="projects__dialog-subhead">{t('projects.builtWith')}</h4>
           <div className="projects__card-techs">
             {project.technologies.map((tech, i) => (
               <span key={i} className="projects__card-tech">{tech}</span>
@@ -128,8 +133,8 @@ function ProjectDialog({ project, onClose }) {
                 <path d="M7 11V7a5 5 0 0110 0v4" />
               </svg>
               {project.privateNote
-                ? `${project.privateNote}.`
-                : 'Private client codebase — source cannot be shared.'}
+                ? `${t('projects.notes.custvicePrivate')}.`
+                : t('projects.notes.privateDefaultLong')}
             </p>
           )}
 
@@ -142,7 +147,7 @@ function ProjectDialog({ project, onClose }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {project.website.label}
+                  {copy.websiteLabel || project.website.label}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
                     <path d="M15 3h6v6M10 14L21 3" />
@@ -169,6 +174,7 @@ function ProjectDialog({ project, onClose }) {
 }
 
 function Projects() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('production');
   const [activePlatform, setActivePlatform] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -189,22 +195,24 @@ function Projects() {
     setCurrentPage(1);
   }, [activeCategory, activePlatform]);
 
+  /* Card copy lives in the dictionary keyed by the project's index; the
+     data file keeps the language-independent fields (logo, tech, links). */
+  const copyFor = (project) => t(`projects.items.${project.index}`) || {};
+
   return (
     <section className="projects ambient" id="projects">
       <div className="projects__container section">
         <div className="projects__header">
-          <span className="section-label">Portfolio</span>
+          <span className="section-label">{t('projects.label')}</span>
           <h2 className="section-title">
-            Featured <span className="gradient-text">projects</span>
+            {t('projects.titleLead')}{' '}
+            <span className="gradient-text">{t('projects.titleAccent')}</span>
           </h2>
-          <p className="section-subtitle">
-            Five production applications — four built for clients and one my own product —
-            plus the university and self-study work that came before them.
-          </p>
+          <p className="section-subtitle">{t('projects.subtitle')}</p>
         </div>
 
         <div className="projects__filters">
-          <div className="projects__filter-row" aria-label="Filter by platform">
+          <div className="projects__filter-row" aria-label={t('projects.filterPlatform')}>
             {platformFilters.map((filter) => (
               <button
                 key={filter.key}
@@ -213,14 +221,14 @@ function Projects() {
                 }`}
                 onClick={() => setActivePlatform(filter.key)}
               >
-                {filter.label}
+                {t(`projects.${filter.labelKey}`)}
               </button>
             ))}
           </div>
 
           <div
             className="projects__filter-row projects__filter-row--end"
-            aria-label="Filter by category"
+            aria-label={t('projects.filterCategory')}
           >
             {categoryFilters.map((filter) => (
               <button
@@ -230,7 +238,7 @@ function Projects() {
                 }`}
                 onClick={() => setActiveCategory(filter.key)}
               >
-                {filter.label}
+                {t(`projects.${filter.labelKey}`)}
               </button>
             ))}
           </div>
@@ -242,10 +250,8 @@ function Projects() {
               <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
               <line x1="9" y1="13" x2="15" y2="13" />
             </svg>
-            <h3 className="projects__empty-title">No projects yet</h3>
-            <p className="projects__empty-text">
-              No projects match this category and platform combination. Try a different one.
-            </p>
+            <h3 className="projects__empty-title">{t('projects.emptyTitle')}</h3>
+            <p className="projects__empty-text">{t('projects.emptyText')}</p>
           </div>
         ) : (
           <div className="projects__grid">
@@ -255,6 +261,7 @@ function Projects() {
                 !project.isPrivate &&
                 hasLinks &&
                 project.links.some((link) => link.url.includes('github.com'));
+              const copy = copyFor(project);
 
               return (
                 <div className="projects__card glow-border" key={project.index}>
@@ -278,7 +285,7 @@ function Projects() {
                       </div>
                     )}
                     <span className={`projects__badge projects__badge--${project.ownership.tone}`}>
-                      {project.ownership.label}
+                      {t(`projects.ownership.${project.ownership.tone}`)}
                     </span>
                   </div>
 
@@ -287,10 +294,10 @@ function Projects() {
                       <h3 className="projects__card-title">{project.title}</h3>
                       <span className="projects__card-date">{project.date}</span>
                     </div>
-                    {project.subtitle && (
-                      <p className="projects__card-subtitle">{project.subtitle}</p>
+                    {copy.subtitle && (
+                      <p className="projects__card-subtitle">{copy.subtitle}</p>
                     )}
-                    <p className="projects__card-desc">{project.description}</p>
+                    <p className="projects__card-desc">{copy.description}</p>
 
                     <div className="projects__card-techs">
                       {project.technologies.map((tech, i) => (
@@ -305,14 +312,18 @@ function Projects() {
                             <rect x="3" y="11" width="18" height="11" rx="2" />
                             <path d="M7 11V7a5 5 0 0110 0v4" />
                           </svg>
-                          {project.privateNote || 'Private client codebase'}
+                          {t(
+                            project.privateNote
+                              ? 'projects.notes.custvicePrivate'
+                              : 'projects.notes.privateDefault'
+                          )}
                         </span>
                       ) : isOpenSource ? (
                         <span className="projects__card-note">
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
                           </svg>
-                          Source on GitHub
+                          {t('projects.notes.openSource')}
                         </span>
                       ) : (
                         <span className="projects__card-note">
@@ -320,14 +331,14 @@ function Projects() {
                             <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
                             <polyline points="14 2 14 8 20 8" />
                           </svg>
-                          Documentation only
+                          {t('projects.notes.docsOnly')}
                         </span>
                       )}
                       <button
                         className="projects__card-eye"
                         onClick={() => setOpenProject(project)}
-                        aria-label={`View details for ${project.title}`}
-                        title="View details"
+                        aria-label={t('projects.viewDetails', { title: project.title })}
+                        title={t('projects.viewDetails', { title: project.title })}
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -377,7 +388,12 @@ function Projects() {
       </div>
 
       {openProject && (
-        <ProjectDialog project={openProject} onClose={() => setOpenProject(null)} />
+        <ProjectDialog
+          project={openProject}
+          copy={copyFor(openProject)}
+          t={t}
+          onClose={() => setOpenProject(null)}
+        />
       )}
     </section>
   );

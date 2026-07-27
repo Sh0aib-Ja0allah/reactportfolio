@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Skills.css';
 import CountUp from '../CountUp/CountUp';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const skillCategories = [
   {
@@ -32,19 +33,21 @@ const skillCategories = [
 const softSkills = ['Team Leadership', 'Problem Solving', 'Time Management', 'Teamwork', 'Agile Methodology', 'Client Communication', 'Code Reviews', 'Quick Learner'];
 
 function Skills() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
+  const categoryTitles = t('skills.categories');
+  const softLabels = t('skills.soft');
 
   return (
     <section className="skills ambient" id="skills">
       <div className="skills__container section">
         <div className="skills__header">
-          <span className="section-label">Skills</span>
+          <span className="section-label">{t('skills.label')}</span>
           <h2 className="section-title">
-            My <span className="gradient-text">tech stack</span>
+            {t('skills.titleLead')}{' '}
+            <span className="gradient-text">{t('skills.titleAccent')}</span>
           </h2>
-          <p className="section-subtitle">
-            Technologies and tools I work with to bring ideas to life.
-          </p>
+          <p className="section-subtitle">{t('skills.subtitle')}</p>
         </div>
 
         <div className="skills__layout">
@@ -57,7 +60,7 @@ function Skills() {
                 style={{ '--tab-color': cat.color }}
               >
                 <span className="skills__tab-icon">{cat.icon}</span>
-                <span className="skills__tab-text">{cat.title}</span>
+                <span className="skills__tab-text">{categoryTitles[i] || cat.title}</span>
                 <CountUp
                   className="skills__tab-count"
                   end={cat.skills.length}
@@ -74,7 +77,9 @@ function Skills() {
                 className="skills__panel-indicator"
                 style={{ '--indicator-color': skillCategories[activeTab].color }}
               ></div>
-              <h3 className="skills__panel-title">{skillCategories[activeTab].title}</h3>
+              <h3 className="skills__panel-title">
+                {categoryTitles[activeTab] || skillCategories[activeTab].title}
+              </h3>
             </div>
             <div className="skills__tiles">
               {skillCategories[activeTab].skills.map((skill, i) => (
@@ -95,10 +100,10 @@ function Skills() {
         </div>
 
         <div className="skills__soft">
-          <h3 className="skills__soft-title">Soft Skills</h3>
+          <h3 className="skills__soft-title">{t('skills.softTitle')}</h3>
           <div className="skills__soft-grid">
             {softSkills.map((skill, i) => (
-              <span key={i} className="skills__soft-tag">{skill}</span>
+              <span key={i} className="skills__soft-tag">{softLabels[i] || skill}</span>
             ))}
           </div>
         </div>

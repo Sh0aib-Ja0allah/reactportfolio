@@ -10,12 +10,13 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>Shoaib Jadallah | Portfolio</title>
     <script>
       /* Applied before first paint so a light-theme visitor never sees a
          flash of the dark palette while React boots. */
       (function () {
+        var root = document.documentElement;
         try {
           var saved = localStorage.getItem('theme');
           var theme =
@@ -24,9 +25,26 @@
               : window.matchMedia('(prefers-color-scheme: light)').matches
               ? 'light'
               : 'dark';
-          document.documentElement.setAttribute('data-theme', theme);
+          root.setAttribute('data-theme', theme);
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'dark');
+          root.setAttribute('data-theme', 'dark');
+        }
+        /* Language and direction must also be settled before first paint,
+           otherwise an Arabic visitor sees the page laid out LTR and snap
+           to RTL once React mounts. */
+        try {
+          var savedLang = localStorage.getItem('language');
+          var lang =
+            savedLang === 'ar' || savedLang === 'en'
+              ? savedLang
+              : (navigator.language || '').toLowerCase().indexOf('ar') === 0
+              ? 'ar'
+              : 'en';
+          root.setAttribute('lang', lang);
+          root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        } catch (e) {
+          root.setAttribute('lang', 'en');
+          root.setAttribute('dir', 'ltr');
         }
       })();
     </script>

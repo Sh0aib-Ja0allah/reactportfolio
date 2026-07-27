@@ -1,8 +1,8 @@
 ﻿.navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   z-index: 1000;
   padding: 20px 0;
   transition: var(--transition);
@@ -52,7 +52,7 @@
   width: 2px;
   height: 18px;
   background: var(--accent-primary);
-  margin-left: 4px;
+  margin-inline-start: 4px;
   animation: blink 1s step-end infinite;
   vertical-align: middle;
 }
@@ -99,6 +99,45 @@
   background: var(--surface-hover);
 }
 
+/* Language switch — pairs with the theme button at the right edge. */
+.navbar__lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 42px;
+  margin-inline-start: 14px;
+  padding: 0 14px;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color-hover);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.navbar__lang-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  direction: ltr;
+}
+
+.navbar__lang:hover {
+  color: #fff;
+  background: var(--accent-gradient);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+}
+
+.navbar__lang:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
 /* Sits at the right edge of the bar, outside the links pill. */
 .navbar__theme {
   display: flex;
@@ -106,7 +145,7 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  margin-left: 14px;
+  margin-inline-start: 10px;
   padding: 0;
   color: var(--accent-primary);
   background: var(--bg-card);
@@ -136,7 +175,7 @@
 }
 
 .navbar__cta {
-  margin-left: 4px;
+  margin-inline-start: 4px;
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -217,23 +256,23 @@
   .navbar__links {
     position: fixed;
     top: 0;
-    right: -100%;
+    inset-inline-end: -100%;
     width: 280px;
     height: 100vh;
     background: var(--bg-secondary);
     border: none;
-    border-left: 1px solid var(--border-color);
+    border-inline-start: 1px solid var(--border-color);
     border-radius: 0;
     flex-direction: column;
     align-items: flex-start;
     padding: 80px 32px 32px;
     gap: 0;
-    transition: right 0.3s ease;
+    transition: inset-inline-end 0.3s ease;
     z-index: 999;
   }
 
   .navbar__links--open {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .navbar__link {
@@ -249,16 +288,22 @@
     color: var(--accent-primary);
   }
 
-  /* Stays in the bar next to the hamburger, not inside the drawer. */
+  /* Both controls stay in the bar next to the hamburger, not in the drawer. */
+  .navbar__lang {
+    margin-inline-start: auto;
+    height: 40px;
+    padding: 0 12px;
+  }
+
   .navbar__theme {
-    margin-left: auto;
-    margin-right: 12px;
+    margin-inline-start: 8px;
+    margin-inline-end: 12px;
     width: 40px;
     height: 40px;
   }
 
   .navbar__cta {
-    margin-left: 0;
+    margin-inset-inline-start: 0;
     margin-top: 24px;
     justify-content: center;
     padding: 14px 24px;

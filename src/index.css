@@ -11,12 +11,44 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
   color: var(--text-secondary);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Inter has no Arabic coverage, so Arabic would otherwise fall back to a
+   system face that clashes with the rest of the page. */
+html[lang='ar'] body {
+  font-family: 'IBM Plex Sans Arabic', 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  letter-spacing: 0;
+}
+
+/* Arabic script has no uppercase, and tracked-out capitals are the one
+   Latin typographic habit that renders as noise in Arabic. */
+html[lang='ar'] .section-label,
+html[lang='ar'] .about__info-label,
+html[lang='ar'] .contact__form-label,
+html[lang='ar'] .hero__stat-label,
+html[lang='ar'] .projects__dialog-subhead {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Latin-script technology names inside Arabic copy read better left to
+   right in their original face. */
+html[lang='ar'] .projects__card-tech,
+html[lang='ar'] .tutorials__card-tech,
+html[lang='ar'] .experience__tech,
+html[lang='ar'] .skills__tile-name,
+html[lang='ar'] .projects__card-date,
+html[lang='ar'] .navbar__logo,
+html[lang='ar'] .footer__logo {
+  font-family: 'Fira Code', monospace;
+  direction: ltr;
 }
 
 a {
