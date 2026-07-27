@@ -26,7 +26,7 @@ function App() {
     // Keeps the mobile browser chrome in step with the page.
     const themeColor = document.querySelector('meta[name="theme-color"]');
     if (themeColor) {
-      themeColor.setAttribute("content", theme === "light" ? "#fbfbfa" : "#050505");
+      themeColor.setAttribute("content", theme === "light" ? "#eeece7" : "#050505");
     }
 
     try {
