@@ -1,4 +1,4 @@
-.hero {
+﻿.hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -14,14 +14,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2;
+  opacity: var(--hero-image-opacity);
   z-index: 0;
 }
 
 .hero__bg-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
   background-size: 32px 32px;
   z-index: 0;
 }

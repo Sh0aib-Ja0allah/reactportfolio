@@ -1,26 +1,76 @@
+/* Theme-independent tokens. The accent stays identical in both themes —
+   it is the brand, not a surface. */
 :root {
-  --bg-primary: #050505;
-  --bg-secondary: #0a0a0a;
-  --bg-card: #111111;
-  --bg-card-hover: #161616;
   --accent-primary: #f97316;
   --accent-secondary: #ec4899;
   --accent-gradient: linear-gradient(135deg, #f97316, #ec4899);
-  --text-primary: #fafafa;
-  --text-secondary: #a3a3a3;
-  --text-muted: #737373;
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-color-hover: rgba(255, 255, 255, 0.12);
-  --shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
   --radius: 16px;
   --radius-lg: 24px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width: 1100px;
 }
 
+/* Dark is the default, and also the explicit [data-theme='dark'] value. */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #161616;
+  --text-primary: #fafafa;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-color-hover: rgba(255, 255, 255, 0.12);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  /* Translucent fills that must flip polarity with the theme. */
+  --surface-subtle: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --grid-dot: rgba(255, 255, 255, 0.04);
+  --nav-bg: rgba(5, 5, 5, 0.9);
+  --scrim: rgba(0, 0, 0, 0.6);
+  --hero-image-opacity: 0.2;
+  --scrollbar-thumb: #262626;
+  --scrollbar-thumb-hover: #404040;
+  --neutral-bg: rgba(10, 10, 10, 0.6);
+  --neutral-text: rgba(255, 255, 255, 0.75);
+  --neutral-border: rgba(255, 255, 255, 0.18);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  /* A warm off-white rather than paper white — easier on the eye, and it
+     stops the cards from glaring against the page. */
+  --bg-primary: #eeece7;
+  --bg-secondary: #e6e4de;
+  --bg-card: #f7f6f3;
+  --bg-card-hover: #f2f0ec;
+  --text-primary: #1c1c1f;
+  --text-secondary: #4d4d55;
+  --text-muted: #6a6a73;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color-hover: rgba(0, 0, 0, 0.2);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  --surface-subtle: rgba(0, 0, 0, 0.035);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+  --surface-strong: rgba(0, 0, 0, 0.16);
+  --grid-dot: rgba(0, 0, 0, 0.07);
+  --nav-bg: rgba(238, 236, 231, 0.88);
+  --scrim: rgba(24, 24, 27, 0.45);
+  --hero-image-opacity: 0.14;
+  --scrollbar-thumb: #c9c6bf;
+  --scrollbar-thumb-hover: #a5a29a;
+  --neutral-bg: rgba(230, 228, 222, 0.92);
+  --neutral-text: #4d4d55;
+  --neutral-border: rgba(0, 0, 0, 0.16);
+}
+
 .app {
   background-color: var(--bg-primary);
   min-height: 100vh;
+  transition: background-color 0.3s ease;
 }
 
 .section {
